@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Java Lessons</string>
+    <string name="home_button_desc">Home</string>
+    <string name="lectures_button_desc">Lectures</string>
+    <string name="tests_button_desc">Tests</string>
+    <string name="settings_button_desc">Settings</string>
 </resources>
