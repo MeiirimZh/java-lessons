@@ -57,4 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
+    public void getLectureTitles(SQLiteDatabase db) {
+    }
 }

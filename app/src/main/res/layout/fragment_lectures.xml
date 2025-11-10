@@ -5,12 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".LecturesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Лекции"
-        android:textSize="24sp"
-        android:layout_gravity="center"/>
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="lectures"
+        android:fitsSystemWindows="true">
 
+        <LinearLayout
+            android:id="@+id/lecture_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

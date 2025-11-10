@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +16,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class LecturesFragment extends Fragment {
+    private DatabaseHelper dbHelper;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +62,20 @@ public class LecturesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_lectures, container, false);
+
+        dbHelper = new DatabaseHelper(requireContext());
+        dbHelper.createDatabaseIfNotExists();
+
+        LinearLayout lecture_buttons = view.findViewById(R.id.lecture_buttons);
+
+        Button button = new Button(getContext());
+        button.setText("Lecture 1");
+
+        lecture_buttons.addView(button);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lectures, container, false);
+        return view;
+//        return inflater.inflate(R.layout.fragment_lectures, container, false);
     }
 }
