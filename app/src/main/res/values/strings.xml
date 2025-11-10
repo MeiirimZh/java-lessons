@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Java Lessons</string>
-    <string name="home_button_desc">Home</string>
-    <string name="lectures_button_desc">Lectures</string>
-    <string name="tests_button_desc">Tests</string>
-    <string name="settings_button_desc">Settings</string>
+    <string name="home_button_desc">Главная</string>
+    <string name="lectures_button_desc">Лекции</string>
+    <string name="tests_button_desc">Тесты</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
