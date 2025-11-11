@@ -1,5 +1,6 @@
 package com.example.javalessons;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -76,7 +77,7 @@ public class LecturesFragment extends Fragment {
         LinearLayout lecture_buttons = view.findViewById(R.id.lecture_buttons);
 
         for (String title : lectures) {
-            Button btn = createLectureBtn(title);
+            Button btn = createLectureBtn(title, lectures.indexOf(title));
 
             lecture_buttons.addView(btn);
         }
@@ -85,7 +86,7 @@ public class LecturesFragment extends Fragment {
         return view;
     }
 
-    public Button createLectureBtn(String lecture_title) {
+    public Button createLectureBtn(String lecture_title, int lecture_id) {
         Button button = new Button(getContext());
         button.setText(lecture_title);
         button.setBackgroundColor(Color.argb(255, 242, 242, 242));
@@ -97,6 +98,15 @@ public class LecturesFragment extends Fragment {
         params.setMargins(0, 0, 0, 30);
 
         button.setLayoutParams(params);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Lecture.class);
+                intent.putExtra("lecture_id", lecture_id);
+                startActivity(intent);
+            }
+        });
 
         return button;
     }
