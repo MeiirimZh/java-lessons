@@ -1,12 +1,17 @@
 package com.example.javalessons;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -58,6 +63,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void getLectureTitles(SQLiteDatabase db) {
+    public List<String> getLectureTitles() {
+        List<String> titles = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        try {
+            Cursor cursor = db.rawQuery("SELECT lecture_title FROM lectures ORDER BY lecture_id", null);
+            if (cursor.moveToFirst()) {
+                do {
+                    String title = cursor.getString(cursor.getColumnIndexOrThrow("lecture_title"));
+                    titles.add(title);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Log.e("DB_TEST", "Ошибка при чтении таблицы lectures: " + e.getMessage());
+        }
+
+        db.close();
+        return titles;
     }
 }

@@ -1,14 +1,18 @@
 package com.example.javalessons;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,18 +68,36 @@ public class LecturesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lectures, container, false);
 
-        dbHelper = new DatabaseHelper(requireContext());
+        DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
         dbHelper.createDatabaseIfNotExists();
+
+        List<String> lectures = dbHelper.getLectureTitles();
 
         LinearLayout lecture_buttons = view.findViewById(R.id.lecture_buttons);
 
-        Button button = new Button(getContext());
-        button.setText("Lecture 1");
+        for (String title : lectures) {
+            Button btn = createLectureBtn(title);
 
-        lecture_buttons.addView(button);
+            lecture_buttons.addView(btn);
+        }
 
         // Inflate the layout for this fragment
         return view;
-//        return inflater.inflate(R.layout.fragment_lectures, container, false);
+    }
+
+    public Button createLectureBtn(String lecture_title) {
+        Button button = new Button(getContext());
+        button.setText(lecture_title);
+        button.setBackgroundColor(Color.argb(255, 242, 242, 242));
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(0, 0, 0, 30);
+
+        button.setLayoutParams(params);
+
+        return button;
     }
 }
