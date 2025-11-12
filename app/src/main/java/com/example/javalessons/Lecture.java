@@ -1,7 +1,7 @@
 package com.example.javalessons;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class Lecture extends AppCompatActivity {
     private ImageView pdfImageView;
-    private Button prevButton, nextButton;
+    private ImageButton prevButton, nextButton;
     private TextView pageText;
     private PdfRenderer pdfRenderer;
     private PdfRenderer.Page currentPage;

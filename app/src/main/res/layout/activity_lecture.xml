@@ -21,8 +21,10 @@
     <ImageView
         android:id="@+id/pdfImageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_height="500dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,16 +37,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pdfImageView">
 
-        <Button
+        <ImageButton
             android:id="@+id/prevButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Назад" />
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="Назад"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/outline_arrow_circle_left_24" />
 
         <TextView
             android:id="@+id/pageText"
@@ -53,11 +59,14 @@
             android:layout_weight="1"
             android:text="TextView" />
 
-        <Button
+        <ImageButton
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Вперед" />
+            android:backgroundTint="#00000000"
+            android:contentDescription="Вперед"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/outline_arrow_circle_right_24" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
