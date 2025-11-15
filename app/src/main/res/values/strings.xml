@@ -6,6 +6,7 @@
     <string name="lecture_scrollview_desc">Названия лекций</string>
     <string name="test_scrollview_desc">Ссылки на тесты</string>
     <string name="back_button">Назад</string>
+    <string name="forward_button">Вперед</string>
     <string name="pdfImageViewDesc">Лекция</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,6 +1,8 @@
 package com.example.javalessons;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +24,7 @@ import java.util.List;
 
 public class Lecture extends AppCompatActivity {
     private ImageView pdfImageView;
-    private ImageButton prevButton, nextButton;
+    private ImageButton backButton, prevButton, nextButton;
     private TextView pageText;
     private PdfRenderer pdfRenderer;
     private PdfRenderer.Page currentPage;
@@ -45,6 +47,7 @@ public class Lecture extends AppCompatActivity {
         List<String> lectures = dbHelper.getLectureTitles();
 
         pdfImageView = findViewById(R.id.pdfImageView);
+        backButton = findViewById(R.id.backButton);
         prevButton = findViewById(R.id.prevButton);
         nextButton = findViewById(R.id.nextButton);
         pageText = findViewById(R.id.pageText);
@@ -55,6 +58,14 @@ public class Lecture extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Lecture.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         prevButton.setOnClickListener(v -> showPage(currentPageIndex - 1));
         nextButton.setOnClickListener(v -> showPage(currentPageIndex + 1));
