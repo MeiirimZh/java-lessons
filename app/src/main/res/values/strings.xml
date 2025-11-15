@@ -4,6 +4,7 @@
     <string name="lectures_button_desc">Лекции</string>
     <string name="tests_button_desc">Тесты</string>
     <string name="lecture_scrollview_desc">Названия лекций</string>
+    <string name="test_scrollview_desc">Ссылки на тесты</string>
     <string name="back_button">Назад</string>
     <string name="pdfImageViewDesc">Лекция</string>
     <!-- TODO: Remove or change this placeholder text -->
