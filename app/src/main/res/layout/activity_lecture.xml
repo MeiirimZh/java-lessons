@@ -37,10 +37,11 @@
 
     </RelativeLayout>
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/pdfImageView"
         android:layout_width="400dp"
         android:layout_height="500dp"
+        android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

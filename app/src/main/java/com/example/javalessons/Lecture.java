@@ -17,13 +17,15 @@ import android.graphics.Bitmap;
 import android.graphics.pdf.PdfRenderer;
 import android.os.ParcelFileDescriptor;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
 
 public class Lecture extends AppCompatActivity {
-    private ImageView pdfImageView;
+    private PhotoView pdfImageView;
     private ImageButton backButton, prevButton, nextButton;
     private TextView pageText;
     private PdfRenderer pdfRenderer;
