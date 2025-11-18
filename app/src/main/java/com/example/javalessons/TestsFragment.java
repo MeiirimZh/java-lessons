@@ -1,5 +1,7 @@
 package com.example.javalessons;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,36 +9,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TestsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TestsFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public TestsFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TestsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static TestsFragment newInstance(String param1, String param2) {
         TestsFragment fragment = new TestsFragment();
         Bundle args = new Bundle();
@@ -58,7 +43,24 @@ public class TestsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tests, container, false);
+        View view = inflater.inflate(R.layout.fragment_tests, container, false);
+
+        TextView lecture1 = view.findViewById(R.id.lecture1);
+        TextView lecture2 = view.findViewById(R.id.lecture2);
+
+        bindTheLink(lecture1, "https://www.youtube.com/");
+        bindTheLink(lecture2, "https://www.google.com/");
+
+        return view;
+    }
+
+    private void bindTheLink(TextView textView, String url) {
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
+        });
     }
 }

@@ -32,16 +32,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/lecture1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Введение в Java"
                 android:textSize="16sp"
                 android:autoLink=""
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="20dp"/>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/lecture2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Установка JDK"
