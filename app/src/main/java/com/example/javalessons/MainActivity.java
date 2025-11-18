@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import com.example.javalessons.R;
 
 import com.example.javalessons.databinding.ActivityMainBinding;
@@ -35,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+
+        String fragmentName = getIntent().getStringExtra("targetFragmentName");
+
+        if (fragmentName != null && fragmentName.equals("lectures")) {
+            replaceFragment(new LecturesFragment());
+            binding.bottomNavigationView.setSelectedItemId(R.id.lectures);
+        }
+
     }
 
     private void replaceFragment(Fragment fragment) {

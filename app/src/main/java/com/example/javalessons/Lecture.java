@@ -63,6 +63,7 @@ public class Lecture extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Lecture.this, MainActivity.class);
+                intent.putExtra("targetFragmentName", "lectures");
                 startActivity(intent);
             }
         });
