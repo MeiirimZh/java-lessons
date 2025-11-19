@@ -70,7 +70,7 @@ public class LecturesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lectures, container, false);
 
         DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
-        dbHelper.createDatabaseIfNotExists();
+        dbHelper.forceCopy();
 
         List<String> lectures = dbHelper.getLectureTitles();
 

@@ -42,6 +42,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             dbFile.getParentFile().mkdirs();
             copyDatabaseFromAssets();
         }
+        Log.d("DB_TEST", "DB SIZE = " + dbFile.length());
+    }
+
+    public void forceCopy() {
+        try {
+            File dbFile = new File(databasePath);
+            if (dbFile.exists()) {
+                dbFile.delete();
+            }
+            copyDatabaseFromAssets();
+            Log.d("DB_TEST", "Database replaced from assets!");
+        } catch (Exception e) {
+            Log.e("DB_TEST", "ERROR REPLACING DB: " + e.getMessage());
+        }
     }
 
     private void copyDatabaseFromAssets() {
