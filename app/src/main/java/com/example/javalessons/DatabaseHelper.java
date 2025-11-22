@@ -97,4 +97,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return titles;
     }
+
+    public String getLectureTitleById(int lectureId) {
+        SQLiteDatabase db = getReadableDatabase();
+        String title = null;
+
+        try {
+            Cursor cursor = db.rawQuery("SELECT lecture_title FROM lectures WHERE lecture_id = ?",
+                    new String[] { String.valueOf(lectureId) });
+            if (cursor.moveToFirst()) {
+                title = cursor.getString(0);
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Log.e("DB_TEST", "Ошибка при чтении таблицы lectures: " + e.getMessage());
+        }
+
+        db.close();
+        return title;
+    }
 }
