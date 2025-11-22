@@ -54,8 +54,19 @@ public class Lecture extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
         pageText = findViewById(R.id.pageText);
 
+        int lecture_id = getIntent().getIntExtra("lecture_id", -1);
+        String fileName = dbHelper.getLectureContentById(lecture_id) + ".pdf";
+        TextView lecture_title_text = findViewById(R.id.lecture_title_text);
+
+        if (lecture_id != -1) {
+            lecture_title_text.setText(lectures.get(lecture_id));
+        }
+        else {
+            lecture_title_text.setText("Лекция не найдена");
+        }
+
         try {
-            openPdfFromAssets("example.pdf");
+            openPdfFromAssets(fileName);
             showPage(currentPageIndex);
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,16 +83,6 @@ public class Lecture extends AppCompatActivity {
 
         prevButton.setOnClickListener(v -> showPage(currentPageIndex - 1));
         nextButton.setOnClickListener(v -> showPage(currentPageIndex + 1));
-
-        int lecture_id = getIntent().getIntExtra("lecture_id", -1);
-        TextView lecture_title_text = findViewById(R.id.lecture_title_text);
-
-        if (lecture_id != -1) {
-            lecture_title_text.setText(lectures.get(lecture_id));
-        }
-        else {
-            lecture_title_text.setText("Лекция не найдена");
-        }
     }
 
     @Override

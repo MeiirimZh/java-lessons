@@ -98,15 +98,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return titles;
     }
 
-    public String getLectureTitleById(int lectureId) {
+    public String getLectureContentById(int lectureId) {
         SQLiteDatabase db = getReadableDatabase();
-        String title = null;
+        String content = null;
 
         try {
-            Cursor cursor = db.rawQuery("SELECT lecture_title FROM lectures WHERE lecture_id = ?",
+            Cursor cursor = db.rawQuery("SELECT content FROM lectures WHERE lecture_id = ?",
                     new String[] { String.valueOf(lectureId) });
             if (cursor.moveToFirst()) {
-                title = cursor.getString(0);
+                content = cursor.getString(0);
             }
             cursor.close();
         } catch (Exception e) {
@@ -114,6 +114,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         db.close();
-        return title;
+        return content;
     }
 }
