@@ -3,18 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".LecturesFragment">
 
-    <TextView
-        android:id="@+id/lectures_title"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lectures_button_desc"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingTop="40dp" />
+        android:layout_height="90dp"
+        android:background="@color/accentLight"
+        app:title="@string/lectures_button_desc"
+        app:titleTextColor="@color/white" />
 
     <ScrollView
         android:id="@+id/scroll_view"
